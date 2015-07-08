@@ -9,7 +9,7 @@ This plugin requires [Ultisnips](https://github.com/SirVer/ultisnips) and [sniph
 ### Using [pathogen](https://github.com/tpope/vim-pathogen)
 
 ```sh
-git clone git://github.com/sniphpets/sniphpets-common ~/.vim/bundle/sniphpets-common
+git clone https://github.com/sniphpets/sniphpets-common.git ~/.vim/bundle/sniphpets-common
 ```
 
 ### Using [vundle](https://github.com/gmarik/vundle)
