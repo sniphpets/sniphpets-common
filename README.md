@@ -14,7 +14,7 @@ git clone https://github.com/sniphpets/sniphpets-common.git ~/.vim/bundle/sniphp
 
 ### Using [vundle](https://github.com/gmarik/vundle)
 
-Add to vimrc:
+Add to your vimrc:
 
 ```vim
 Plugin 'sniphpets/sniphpets-common'
