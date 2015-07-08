@@ -1,0 +1,96 @@
+priority -40
+
+snippet "p(u|o|i)?(s)?" "Property" br
+`!p snip.rv = 'private ' if match.group(1) == 'i' else ('protected ' if match.group(1) == 'o' else 'public ')``!p snip.rv = 'static ' if match.group(2) else ''`\$${1:property};
+endsnippet
+
+snippet get "Method / Getter" b
+/**
+ * Get${2:${1/[A-Z]/ \l$0/g}}.
+ *
+ * @return ${3:$1}
+ */
+public function get${1}()
+{
+	return $this->${1/^./\l$0/};${4}
+}
+endsnippet
+
+snippet set "Method / Setter" b
+/**
+ * Set${3:${1/[A-Z]/ \l$0/g}}.
+ *
+ * @param ${4:${2/^$/mixed /}}$${1/^./\l$0/}
+ * @return ${5:`!v sniphpets#basename()`}
+ */
+public function set${1}(${2:$1 }$${1/^./\l$0/})
+{
+	$this->${1/^./\l$0/} = $${1/^./\l$0/};${6}
+
+	return \$this;
+}
+endsnippet
+
+snippet getset "Method / Getter and setter" b
+/**
+ * Get${1/[A-Z]/ \l$0/g}.
+ *
+ * @return ${2/^$/mixed/}
+ */
+public function get${1}()
+{
+	return $this->${1/^./\l$0/};
+}
+
+/**
+ * Set${1/[A-Z]/ \l$0/g}.
+ *
+ * @param ${2/^$/mixed /}$${1/^./\l$0/}
+ * @return ${3:`!v sniphpets#basename()`}
+ */
+public function set$1(${2:$1 }$${1/^./\l$0/})
+{
+	$this->${1/^./\l$0/} = $${1/^./\l$0/};
+
+	return \$this;
+}
+endsnippet
+
+snippet "m(u|o|i)?(s)?" "Method" br
+`!p snip.rv = 'private ' if match.group(1) == 'i' else ('protected ' if match.group(1) == 'o' else 'public ')``!p snip.rv = 'static ' if match.group(2) else ''`function ${1:methodName}(${2})
+{
+	${VISUAL}${3}
+}
+endsnippet
+
+snippet "m(a|;)(u|o)?(s)?" "Abstract or empty method" br
+`!p snip.rv = 'abstract ' if match.group(1) == 'a' else ''``!p snip.rv = 'protected ' if match.group(2) == 'o' else 'public '``!p snip.rv = 'static ' if match.group(3) else ''`function ${1:methodName}(${2});
+endsnippet
+
+snippet clone "Magic method: __clone" b
+public function __clone()
+{
+	${VISUAL}${1}
+}
+endsnippet
+
+snippet sleep "Magic method: __sleep" b
+public function __sleep()
+{
+	${VISUAL}${1}
+}
+endsnippet
+
+snippet wakeup "Magic method: __wakeup" b
+public function __wakeup()
+{
+	${VISUAL}${1}
+}
+endsnippet
+
+snippet invoke "Magic method: __invoke" b
+public function __invoke(${1})
+{
+	${VISUAL}${2}
+}
+endsnippet

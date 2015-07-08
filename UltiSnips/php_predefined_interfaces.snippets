@@ -1,0 +1,69 @@
+priority -40
+
+snippet iterator "Iterator interface methods" b
+public function current()
+{
+	${1}
+}
+
+public function key()
+{
+	${2}
+}
+
+public function next()
+{
+	${3}
+}
+
+public function rewind()
+{
+	${4}
+}
+
+public function valid()
+{
+	${5}
+}
+endsnippet
+
+snippet arrayaccess "ArrayAccess methods" b
+public function offsetExists($offset)
+{
+	${1}
+}
+
+public function offsetGet($offset)
+{
+	${2}
+}
+
+public function offsetSet($offset, $value)
+{
+	${3}
+}
+
+public function offsetUnset($offset)
+{
+	${4}
+}
+endsnippet
+
+snippet iteratoraggregate "IteratorAggregate methods" b
+public function getIterator()
+{
+	${1}
+}
+endsnippet
+
+snippet serializable "Serializable methods" b
+public function serialize()
+{
+	${1}
+}
+
+public function unserialize($serialized)
+{
+	${2}
+}
+endsnippet

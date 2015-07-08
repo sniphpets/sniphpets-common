@@ -1,0 +1,65 @@
+priority -40
+
+snippet $ "Assign variable with docblock @var" b
+/** @var ${3:${1/^./\u$0/}} $$1 */
+$${1} = ${2};
+endsnippet
+
+snippet do "do while"
+do {
+	${VISUAL}${2}
+} while (${1:/* condition */});
+endsnippet
+
+snippet if "if"
+if (${1:/* condition */}) {
+	${VISUAL}${2}
+}
+endsnippet
+
+snippet else "else"
+else {
+	${VISUAL}${1}
+}
+endsnippet
+
+snippet elif "elseif"
+elseif (${1:/* condition */}) {
+	${VISUAL}${2}
+}
+endsnippet
+
+snippet try "try/catch" b
+try {
+	${VISUAL}${0}
+} catch (${1:\Exception} $e) {
+}
+endsnippet
+
+snippet tryf "try/catch/finally" b
+try {
+	${VISUAL}${0}
+} catch (${1:\Exception} $e) {
+} finally {
+}
+endsnippet
+
+snippet use "use" b
+use `!v matchstr(sniphpets#resolve_fqn(), '\v^([^\\]+\\){1}')`${1};
+endsnippet
+
+snippet use2 "use" b
+use `!v matchstr(sniphpets#resolve_fqn(), '\v^([^\\]+\\){2}')`${1};
+endsnippet
+
+snippet use3 "use" b
+use `!v matchstr(sniphpets#resolve_fqn(), '\v^([^\\]+\\){3}')`${1};
+endsnippet
+
+snippet use4 "use" b
+use `!v matchstr(sniphpets#resolve_fqn(), '\v^([^\\]+\\){4}')`${1};
+endsnippet
+
+snippet use5 "use" b
+use `!v matchstr(sniphpets#resolve_fqn(), '\v^([^\\]+\\){5}')`${1};
+endsnippet

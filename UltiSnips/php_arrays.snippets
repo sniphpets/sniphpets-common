@@ -1,0 +1,29 @@
+priority -40
+
+snippet list "list()"
+list($${1}, $${2})
+endsnippet
+
+snippet list3 "list()"
+list($${1}, $${2}, $${3})
+endsnippet
+
+snippet list4 "list()"
+list($${1}, $${2}, $${3}, $${4})
+endsnippet
+
+snippet list5 "list()"
+list($${1}, $${2}, $${3}, $${4}, $${5})
+endsnippet
+
+snippet amap "array_map"
+array_map(${1:function($item) { ${2} }}, ${3:$items})${0}
+endsnippet
+
+snippet areduce "array_reduce"
+array_reduce(${1:$items}${2:, function($carry, $item) { ${3} }${4:, ${5:$initial}}})${0}
+endsnippet
+
+snippet afilter "array_filter"
+array_filter(${1:$items}${2:, function($item) { ${3} }})${0}
+endsnippet
