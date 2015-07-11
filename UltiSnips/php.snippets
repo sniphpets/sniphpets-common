@@ -17,6 +17,12 @@ if (${1:/* condition */}) {
 }
 endsnippet
 
+snippet "(\S.*)\.if" "if postfix code" br
+if (`!p snip.rv = match.group(1)`) {
+	${1}
+}
+endsnippet
+
 snippet else "else"
 else {
 	${VISUAL}${1}
