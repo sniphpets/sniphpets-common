@@ -5,6 +5,13 @@ snippet "p(u|o|i)?(s)?" "Property" br
 endsnippet
 
 snippet get "Method / Getter" b
+public function get${1}()
+{
+	return \$this->${1/^./\l$0/};
+}
+endsnippet
+
+snippet getd "Method / Getter with docblock" b
 /**
  * Get${2:${1/[A-Z]/ \l$0/g}}.
  *
@@ -12,15 +19,25 @@ snippet get "Method / Getter" b
  */
 public function get${1}()
 {
-	return \$this->${1/^./\l$0/};${4}
+	return \$this->${1/^./\l$0/};
 }
 endsnippet
 
 snippet set "Method / Setter" b
+public function set${1}(${2:$1 }$${1/^./\l$0/})
+{
+	\$this->${1/^./\l$0/} = $${1/^./\l$0/};
+
+	return \$this;
+}
+endsnippet
+
+snippet setd "Method / Setter with docblock" b
 /**
  * Set${3:${1/[A-Z]/ \l$0/g}}.
  *
  * @param ${4:${2/^$/mixed /}}$${1/^./\l$0/}
+ *
  * @return ${5:`!v sniphpets#basename()`}
  */
 public function set${1}(${2:$1 }$${1/^./\l$0/})
@@ -32,12 +49,26 @@ public function set${1}(${2:$1 }$${1/^./\l$0/})
 endsnippet
 
 snippet getset "Method / Getter and setter" b
+public function get${1}()
+{
+	return \$this->${1/^./\l$0/};
+}
+
+public function set$1(${2:$1 }$${1/^./\l$0/})
+{
+	\$this->${1/^./\l$0/} = $${1/^./\l$0/};
+
+	return \$this;
+}
+endsnippet
+
+snippet getsetd "Method / Getter and setter with docblock" b
 /**
  * Get${1/[A-Z]/ \l$0/g}.
  *
- * @return ${2/^$/mixed/}
+ * @return ${3/ $//}
  */
-public function get${1}()
+public function get$1()
 {
 	return \$this->${1/^./\l$0/};
 }
@@ -45,12 +76,13 @@ public function get${1}()
 /**
  * Set${1/[A-Z]/ \l$0/g}.
  *
- * @param ${2/^$/mixed /}$${1/^./\l$0/}
- * @return ${3:`!v sniphpets#basename()`}
+ * @param ${3:${2/^ ?$/mixed /}}\$${1/^./\l$0/}
+ *
+ * @return ${4:`!v sniphpets#basename()`}
  */
-public function set$1(${2:$1 }$${1/^./\l$0/})
+public function set${1}(${2:$1 }\$${1/^./\l$0/})
 {
-	\$this->${1/^./\l$0/} = $${1/^./\l$0/};
+	\$this->${1/^./\l$0/} = \$${1/^./\l$0/};
 
 	return \$this;
 }
