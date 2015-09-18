@@ -1,5 +1,9 @@
 priority -40
 
+global !p
+import sniphpets
+endglobal
+
 snippet "p(u|o|i)?(s)?" "Property" br
 `!p snip.rv = 'private ' if match.group(1) == 'i' else ('protected ' if match.group(1) == 'o' else 'public ')``!p snip.rv = 'static ' if match.group(2) else ''`\$${1:property};
 endsnippet
@@ -13,7 +17,7 @@ endsnippet
 
 snippet getd "Method / Getter with docblock" b
 /**
- * Get${2:${1/[A-Z]/ \l$0/g}}.
+ * Get ${2:`!p snip.rv = sniphpets.camel_to_snake(t[1], ' ')`}.
  *
  * @return ${3:$1}
  */
@@ -26,7 +30,7 @@ endsnippet
 snippet set "Method / Setter" b
 public function set${1}(${2:$1 }$${1/^./\l$0/})
 {
-	\$this->${1/^./\l$0/} = $${1/^./\l$0/};
+	\$this->${1/^./\l$0/} = \$${1/^./\l$0/};
 
 	return \$this;
 }
@@ -34,15 +38,15 @@ endsnippet
 
 snippet setd "Method / Setter with docblock" b
 /**
- * Set${3:${1/[A-Z]/ \l$0/g}}.
+ * Set ${3:`!p snip.rv = sniphpets.camel_to_snake(t[1], ' ')`}.
  *
- * @param ${4:${2/^$/mixed /}}$${1/^./\l$0/}
+ * @param ${4:${2/^.?$/mixed /}}\$${1/^./\l$0/} ${5:${3/^./\u$0/}}
  *
- * @return ${5:`!v sniphpets#basename()`}
+ * @return \$this
  */
-public function set${1}(${2:$1 }$${1/^./\l$0/})
+public function set${1}(${2:$1 }\$${1/^./\l$0/})
 {
-	\$this->${1/^./\l$0/} = $${1/^./\l$0/};${6}
+	\$this->${1/^./\l$0/} = \$${1/^./\l$0/};
 
 	return \$this;
 }
@@ -54,9 +58,9 @@ public function get${1}()
 	return \$this->${1/^./\l$0/};
 }
 
-public function set$1(${2:$1 }$${1/^./\l$0/})
+public function set$1(${2:$1 }\$${1/^./\l$0/})
 {
-	\$this->${1/^./\l$0/} = $${1/^./\l$0/};
+	\$this->${1/^./\l$0/} = \$${1/^./\l$0/};
 
 	return \$this;
 }
@@ -64,7 +68,7 @@ endsnippet
 
 snippet getsetd "Method / Getter and setter with docblock" b
 /**
- * Get${1/[A-Z]/ \l$0/g}.
+ * Get `!p snip.rv = sniphpets.camel_to_snake(t[1], ' ')`.
  *
  * @return ${3/ $//}
  */
@@ -74,11 +78,11 @@ public function get$1()
 }
 
 /**
- * Set${1/[A-Z]/ \l$0/g}.
+ * Set `!p snip.rv = sniphpets.camel_to_snake(t[1], ' ')`.
  *
- * @param ${3:${2/^ ?$/mixed /}}\$${1/^./\l$0/}
+ * @param ${3:${2/^$/mixed /}}\$${1/^./\l$0/}
  *
- * @return ${4:`!v sniphpets#basename()`}
+ * @return \$this
  */
 public function set${1}(${2:$1 }\$${1/^./\l$0/})
 {
