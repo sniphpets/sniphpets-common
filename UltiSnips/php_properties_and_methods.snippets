@@ -2,12 +2,19 @@ priority -40
 
 global !p
 import sniphpets
+
+def visibility(m):
+	if m == 'i':
+		return 'private'
+	elif m == 'o':
+		return 'protected'
+
+	return 'public'
 endglobal
 
 snippet "p(u|o|i)?(s)?" "Property" br
-`!p snip.rv = 'private ' if match.group(1) == 'i' else ('protected ' if match.group(1) == 'o' else 'public ')``!p snip.rv = 'static ' if match.group(2) else ''`\$${1:property};
+`!p snip.rv = visibility(match.group(1))` `!p snip.rv = 'static ' if match.group(2) else ''`\$${1:property};
 endsnippet
-
 snippet get "Method / Getter" b
 public function get${1}()
 {
@@ -93,14 +100,14 @@ public function set${1}(${2:$1 }\$${1/^./\l$0/})
 endsnippet
 
 snippet "m(u|o|i)?(s)?" "Method" br
-`!p snip.rv = 'private ' if match.group(1) == 'i' else ('protected ' if match.group(1) == 'o' else 'public ')``!p snip.rv = 'static ' if match.group(2) else ''`function ${1:methodName}(${2})
+`!p snip.rv = visibility(match.group(1))` `!p snip.rv = 'static ' if match.group(2) else ''`function ${1:methodName}(${2})
 {
 	${VISUAL}${3}
 }
 endsnippet
 
 snippet "m(a|;)(u|o)?(s)?" "Abstract or empty method" br
-`!p snip.rv = 'abstract ' if match.group(1) == 'a' else ''``!p snip.rv = 'protected ' if match.group(2) == 'o' else 'public '``!p snip.rv = 'static ' if match.group(3) else ''`function ${1:methodName}(${2});
+`!p snip.rv = 'abstract ' if match.group(1) == 'a' else ''``!p snip.rv = visibility(match.group(2))` `!p snip.rv = 'static ' if match.group(3) else ''`function ${1:methodName}(${2});
 endsnippet
 
 snippet clone "Magic method: __clone" b
