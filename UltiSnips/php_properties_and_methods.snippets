@@ -17,7 +17,7 @@ snippet "p(u|o|i)?(s)?" "Property" br
 endsnippet
 
 snippet get "Method / Getter" b
-public function get${1}()
+public function get${1}()${2:: ${3:string}}
 {
 	return \$this->${1/^./\l$0/};
 }
@@ -25,18 +25,18 @@ endsnippet
 
 snippet getd "Method / Getter with docblock" b
 /**
- * Get ${2:`!p snip.rv = sniphpets.camel_to_snake(t[1], ' ')`}.
+ * Get ${4:`!p snip.rv = sniphpets.camel_to_snake(t[1], ' ')`}.
  *
- * @return ${3:$1}
+ * @return ${5:$3}
  */
-public function get${1}()
+public function get${1}()${2:: ${3:string}}
 {
 	return \$this->${1/^./\l$0/};
 }
 endsnippet
 
 snippet set "Method / Setter" b
-public function set${1}(${2:$1 }$${1/^./\l$0/})
+public function set${1}(${2:$1 }$${1/^./\l$0/})${3:: self}
 {
 	\$this->${1/^./\l$0/} = \$${1/^./\l$0/};
 
@@ -46,13 +46,13 @@ endsnippet
 
 snippet setd "Method / Setter with docblock" b
 /**
- * Set ${3:`!p snip.rv = sniphpets.camel_to_snake(t[1], ' ')`}.
+ * Set ${4:`!p snip.rv = sniphpets.camel_to_snake(t[1], ' ')`}.
  *
- * @param ${4:${2/^.?$/mixed /}}\$${1/^./\l$0/} ${5:${3/^./\u$0/}}
+ * @param ${5:${2/^.?$/mixed /}}\$${1/^./\l$0/} ${6:${4/^./\u$0/}}
  *
- * @return \$this
+ * @return self
  */
-public function set${1}(${2:$1 }\$${1/^./\l$0/})
+public function set${1}(${2:$1 }\$${1/^./\l$0/})${3:: self}
 {
 	\$this->${1/^./\l$0/} = \$${1/^./\l$0/};
 
@@ -61,12 +61,12 @@ public function set${1}(${2:$1 }\$${1/^./\l$0/})
 endsnippet
 
 snippet getset "Method / Getter and setter" b
-public function get${1}()
+public function get$1()${3:: ${4:$2}}
 {
 	return \$this->${1/^./\l$0/};
 }
 
-public function set$1(${2:$1 }\$${1/^./\l$0/})
+public function set${1}(${2:$1 }\$${1/^./\l$0/})${5:: self}
 {
 	\$this->${1/^./\l$0/} = \$${1/^./\l$0/};
 
@@ -90,7 +90,7 @@ public function get$1()
  *
  * @param ${3:${2/^$/mixed /}}\$${1/^./\l$0/}
  *
- * @return \$this
+ * @return self
  */
 public function set${1}(${2:$1 }\$${1/^./\l$0/})
 {
@@ -101,14 +101,14 @@ public function set${1}(${2:$1 }\$${1/^./\l$0/})
 endsnippet
 
 snippet "m(u|o|i)?(s)?" "Method" br
-`!p snip.rv = visibility(match.group(1))` `!p snip.rv = 'static ' if match.group(2) else ''`function ${1:methodName}(${2})
+`!p snip.rv = visibility(match.group(1))` `!p snip.rv = 'static ' if match.group(2) else ''`function ${1:methodName}(${2})${3:: ${4:string}}
 {
-	${VISUAL}${3}
+	${VISUAL}${5}
 }
 endsnippet
 
 snippet "m(a|;)(u|o)?(s)?" "Abstract or empty method" br
-`!p snip.rv = 'abstract ' if match.group(1) == 'a' else ''``!p snip.rv = visibility(match.group(2))` `!p snip.rv = 'static ' if match.group(3) else ''`function ${1:methodName}(${2});
+`!p snip.rv = 'abstract ' if match.group(1) == 'a' else ''``!p snip.rv = visibility(match.group(2))` `!p snip.rv = 'static ' if match.group(3) else ''`function ${1:methodName}(${2})${3:: ${4:string}};
 endsnippet
 
 snippet clone "Magic method: __clone" b
