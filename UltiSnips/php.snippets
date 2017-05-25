@@ -12,11 +12,17 @@ endsnippet
 snippet do "do while"
 do {
 	${VISUAL}${2}
-} while (${1:/* condition */});
+} while (${1});
 endsnippet
 
 snippet if "if"
-if (${1:/* condition */}) {
+if (${1}) {
+	${VISUAL}${2}
+}
+endsnippet
+
+snippet ifnull "if null"
+if (null === ${1}) {
 	${VISUAL}${2}
 }
 endsnippet
@@ -28,7 +34,7 @@ else {
 endsnippet
 
 snippet elif "elseif"
-elseif (${1:/* condition */}) {
+elseif (${1}) {
 	${VISUAL}${2}
 }
 endsnippet
