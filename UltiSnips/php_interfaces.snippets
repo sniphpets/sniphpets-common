@@ -3,7 +3,7 @@ priority -40
 snippet interface "Interface" b
 <?php
 
-namespace `!v sniphpets#resolve_namespace()`;
+namespace `!v sniphpets#namespace()`;
 
 interface `!v sniphpets#basename()`
 {
@@ -14,7 +14,7 @@ endsnippet
 snippet interfacee "Interface extends another interface" b
 <?php
 
-namespace `!v sniphpets#resolve_namespace()`;
+namespace `!v sniphpets#namespace()`;
 
 interface `!v sniphpets#basename()` extends ${1}
 {

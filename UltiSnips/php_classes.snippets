@@ -3,7 +3,7 @@ priority -40
 snippet "class(a|f)?" "Class" br
 <?php
 
-namespace `!v sniphpets#resolve_namespace()`;
+namespace `!v sniphpets#namespace()`;
 
 `!p snip.rv = 'abstract ' if match.group(1) == 'a' else ('final ' if match.group(1) == 'f' else '')`class `!v sniphpets#basename()`
 {
@@ -14,7 +14,7 @@ endsnippet
 snippet "class(a|f)?e" "Class / extends" br
 <?php
 
-namespace `!v sniphpets#resolve_namespace()`;
+namespace `!v sniphpets#namespace()`;
 
 `!p snip.rv = 'abstract ' if match.group(1) == 'a' else ('final ' if match.group(1) == 'f' else '')`class `!v sniphpets#basename()` extends ${1}
 {
@@ -25,7 +25,7 @@ endsnippet
 snippet "class(a|f)?i" "Class / implements" br
 <?php
 
-namespace `!v sniphpets#resolve_namespace()`;
+namespace `!v sniphpets#namespace()`;
 
 `!p snip.rv = 'abstract ' if match.group(1) == 'a' else ('final ' if match.group(1) == 'f' else '')`class `!v sniphpets#basename()` implements ${1:`!v sniphpets#basename()`Interface}
 {
@@ -36,7 +36,7 @@ endsnippet
 snippet "class(a|f)?ei" "Class / extends, implements" br
 <?php
 
-namespace `!v sniphpets#resolve_namespace()`;
+namespace `!v sniphpets#namespace()`;
 
 `!p snip.rv = 'abstract ' if match.group(1) == 'a' else ('final ' if match.group(1) == 'f' else '')`class `!v sniphpets#basename()` extends ${1} implements ${2:`!v sniphpets#basename()`Interface}
 {
