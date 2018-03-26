@@ -4,12 +4,12 @@ global !p
 import sniphpets
 
 def visibility(m):
-	if m == 'i':
-		return 'private'
+	if m == 'u':
+		return 'public'
 	elif m == 'o':
 		return 'protected'
 
-	return 'public'
+	return 'private'
 endglobal
 
 snippet "p(u|o|i)?(s)?" "Property" br
