@@ -31,36 +31,8 @@ public function get${1}()${2:: ${3:string}}
 }
 endsnippet
 
-snippet getd "Method / Getter with docblock" b
-/**
- * Get ${4:`!p snip.rv = sniphpets.camel_to_snake(t[1], ' ')`}.
- *
- * @return ${5:$3}
- */
-public function get${1}()${2:: ${3:string}}
-{
-	return \$this->${1/^./\l$0/};
-}
-endsnippet
-
 snippet set "Method / Setter" b
 public function set${1}(${2:$1 }$${1/^./\l$0/})${3:: self}
-{
-	\$this->${1/^./\l$0/} = \$${1/^./\l$0/};
-
-	return \$this;
-}
-endsnippet
-
-snippet setd "Method / Setter with docblock" b
-/**
- * Set ${4:`!p snip.rv = sniphpets.camel_to_snake(t[1], ' ')`}.
- *
- * @param ${5:${2/^.?$/mixed /}}\$${1/^./\l$0/} ${6:${4/^./\u$0/}}
- *
- * @return self
- */
-public function set${1}(${2:$1 }\$${1/^./\l$0/})${3:: self}
 {
 	\$this->${1/^./\l$0/} = \$${1/^./\l$0/};
 
@@ -75,32 +47,6 @@ public function get$1()${3:: ${4:$2}}
 }
 
 public function set${1}(${2:$1 }\$${1/^./\l$0/})${5:: self}
-{
-	\$this->${1/^./\l$0/} = \$${1/^./\l$0/};
-
-	return \$this;
-}
-endsnippet
-
-snippet getsetd "Method / Getter and setter with docblock" b
-/**
- * Get `!p snip.rv = sniphpets.camel_to_snake(t[1], ' ')`.
- *
- * @return ${3/ $//}
- */
-public function get$1()
-{
-	return \$this->${1/^./\l$0/};
-}
-
-/**
- * Set `!p snip.rv = sniphpets.camel_to_snake(t[1], ' ')`.
- *
- * @param ${3:${2/^$/mixed /}}\$${1/^./\l$0/}
- *
- * @return self
- */
-public function set${1}(${2:$1 }\$${1/^./\l$0/})
 {
 	\$this->${1/^./\l$0/} = \$${1/^./\l$0/};
 
