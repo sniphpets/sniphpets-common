@@ -32,11 +32,9 @@ public function get${1}()${2:: ${3:string}}
 endsnippet
 
 snippet set "Method / Setter" b
-public function set${1}(${2:$1 }$${1/^./\l$0/})${3:: self}
+public function set${1}(${2:$1 }$${1/^./\l$0/})${3:: void}
 {
 	\$this->${1/^./\l$0/} = \$${1/^./\l$0/};
-
-	return \$this;
 }
 endsnippet
 
@@ -46,11 +44,9 @@ public function get$1()${3:: ${4:$2}}
 	return \$this->${1/^./\l$0/};
 }
 
-public function set${1}(${2:$1 }\$${1/^./\l$0/})${5:: self}
+public function set${1}(${2:$1 }\$${1/^./\l$0/})${5:: void}
 {
 	\$this->${1/^./\l$0/} = \$${1/^./\l$0/};
-
-	return \$this;
 }
 endsnippet
 
