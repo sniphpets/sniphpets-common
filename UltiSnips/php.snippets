@@ -54,6 +54,10 @@ try {
 }
 endsnippet
 
+snippet "(^|[^\w])fn" "Arrow function" r
+`!p snip.rv = match.group(1)`fn(${1}) => ${2}
+endsnippet
+
 snippet use "use" b
 use `!v matchstr(sniphpets#fqn(), '\v^([^\\]+\\){1}')`${1};
 endsnippet
