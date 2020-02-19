@@ -38,8 +38,8 @@ public function set${1}(${2:$1 }$${1/^./\l$0/})${3:: void}
 }
 endsnippet
 
-snippet getset "Method / Getter and setter" b
-public function get$1()${3:: ${4:$2}}
+snippet getset "Method / Getter and setter" bm
+public function get$1()${3:: ${4:${2/\s//}}}
 {
 	return \$this->${1/^./\l$0/};
 }
