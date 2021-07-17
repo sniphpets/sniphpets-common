@@ -21,7 +21,7 @@ def method_visibility(m):
 endglobal
 
 snippet "p(u|o|i)?(s)?" "Property" br
-`!p snip.rv = property_visibility(match.group(1))` `!p snip.rv = 'static ' if match.group(2) else ''`\$${1:property};
+`!p snip.rv = property_visibility(match.group(1))` `!p snip.rv = 'static ' if match.group(2) else ''`${1:string} \$${2:property};
 endsnippet
 
 snippet get "Method / Getter" b
